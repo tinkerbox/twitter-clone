@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :user
+  resources :users, only: [:new, :create, :show]
 
   namespace :my do
-    resources :account, only: [:index]
+    resource :account, only: [:edit, :update, :destroy]
   end
 
   resources :sessions, only: [:new, :create, :destroy]
@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   delete '/log_out', to: 'sessions#destroy', as: :log_out
 
   resources :tweets
+
+  resources :follows, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
 
   # Example resource route with options:
   #   resources :products do

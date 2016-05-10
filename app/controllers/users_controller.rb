@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
@@ -26,7 +26,7 @@ class UserController < ApplicationController
 		@user = User.find(params[:id])
 		if @user.update_attributes(user_params)
 			flash[:success] = 'Profile updated!'
-			redirect_to edit_user_path
+			redirect_to edit_my_account_path
 		else
 			flash[:error] = 'Your changes were unsaved'
 			render 'edit'

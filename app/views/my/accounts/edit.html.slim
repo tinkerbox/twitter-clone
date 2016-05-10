@@ -1,6 +1,6 @@
 h1 Edit Your Profile
 
-= simple_form_for @user, url: {action: 'update', controller: 'user', method: 'POST'} do |f|
+= simple_form_for @user, url: {action: 'update', controller: 'my/accounts', method: 'POST'} do |f|
 	= f.input :avatar, type: :file
 	= f.input :name
 	= f.input :username
