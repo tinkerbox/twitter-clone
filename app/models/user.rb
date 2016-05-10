@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true, format: { with: EMAIL_REGEX , multiline: true }
   validates :username, uniqueness: true, presence: true
   validates :name, presence: true
+
+  mount_uploader :avatar, AvatarUploader
 end

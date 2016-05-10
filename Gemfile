@@ -28,6 +28,7 @@ gem 'slim-rails', '~> 3.0', '>= 3.0.1'
 gem 'rspec', '~> 3.4'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'sorcery'
+gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
