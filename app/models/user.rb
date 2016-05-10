@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :tweets, dependent: :destroy
+
   authenticates_with_sorcery!
 
   validates :password, length: { minimum: 3}, confirmation: true
