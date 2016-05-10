@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/log_in', to: 'sessions#new', as: :log_in
   delete '/log_out', to: 'sessions#destroy', as: :log_out
 
+  resource :tweet
+
   # Example resource route with options:
   #   resources :products do
   #     member do
