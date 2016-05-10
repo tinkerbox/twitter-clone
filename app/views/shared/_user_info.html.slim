@@ -1,0 +1,7 @@
+.panel.panel-default
+	.panel-body
+		.row
+			h4 = @user.username
+			= image_tag @user.avatar.thumb.url
+		p = @user.name
+		p = @user.email

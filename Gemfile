@@ -30,6 +30,10 @@ gem 'shoulda-matchers', '~> 3.1'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'sorcery'
 
+# For user avatar
+gem 'carrierwave'
+gem 'mini_magick'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
