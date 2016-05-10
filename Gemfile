@@ -25,7 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'slim-rails', '~> 3.0', '>= 3.0.1'
-gem 'rspec', '~> 3.4'
+gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+gem 'shoulda-matchers', '~> 3.1'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'sorcery'
 gem 'carrierwave'
