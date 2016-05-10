@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :user
 
+  namespace :my do
+    resources :account, only: [:index]
+
   resources :sessions, only: [:new, :create, :destroy]
 
   get '/log_in', to: 'sessions#new', as: :log_in
