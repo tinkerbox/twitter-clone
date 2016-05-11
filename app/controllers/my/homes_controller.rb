@@ -1,4 +1,4 @@
-class My::HomesController < ApplicationController
+class My::HomesController < My::BaseController
 	def show
     @user = current_user
     @followed_users = current_user.followees

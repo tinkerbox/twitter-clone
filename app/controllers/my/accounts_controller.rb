@@ -1,4 +1,4 @@
-class My::AccountsController < ApplicationController
+class My::AccountsController < My::BaseController
 
   def edit
     @user = current_user

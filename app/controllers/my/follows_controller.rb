@@ -1,4 +1,4 @@
-class My::FollowsController < ApplicationController
+class My::FollowsController < My::BaseController
 	def create
 		@user = current_user.id
 		@other_user = params[:format]
