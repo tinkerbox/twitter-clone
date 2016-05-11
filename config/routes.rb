@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   end
 
   resource :account, only: [:new, :create]
-  resource :home, only: [:show]
 
   namespace :my do
+    get '/', to: redirect('/my/home')
+    resource :home, only: [:show]
     resource :account, only: [:edit, :update, :destroy]
     resources :tweets, only: [:new, :create, :destroy]
     resources :follows, only: [:create, :destroy]
