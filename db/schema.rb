@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511074435) do
+ActiveRecord::Schema.define(version: 20160511102743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160511074435) do
     t.integer  "followers_count"
     t.integer  "following_count"
     t.integer  "tweets_count"
+    t.integer  "likes_count"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,0 +1,10 @@
+h1 Tweets You Liked
+hr
+- @tweets_liked.each do |tweet|
+  .media-left
+    = image_tag @user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+  .media-body
+    p = @user.username
+    p = tweet.text
+    p = tweet.created_at
+  hr
