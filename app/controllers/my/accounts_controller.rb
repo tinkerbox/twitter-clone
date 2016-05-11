@@ -5,10 +5,9 @@ class My::AccountsController < ApplicationController
   end
 
   def update
-    @user = current_user
-    if @user.update_attributes(user_params)
+    if current_user.update_attributes(user_params)
       flash[:success] = 'Profile updated!'
-      redirect_to edit_my_account_path
+      redirect_to current_user
     else
       flash[:error] = 'Your changes were unsaved'
       render 'edit'
