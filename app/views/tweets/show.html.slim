@@ -1,1 +1,7 @@
+h1 Your Tweet
+
 = @tweet.text
+
+= button_to "Like!", {controller: 'my/likes', action: 'create', tweet_id: params[:id]}, method: :post
+
+= button_to "Unlike..", {controller: 'my/likes', action: 'destroy', tweet_id: params[:id]}, method: :delete
