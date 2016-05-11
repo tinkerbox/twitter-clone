@@ -1,0 +1,15 @@
+.page-header
+- if @tweets
+	- @tweets.each do |tweet|
+		.media-left
+		.media-body
+			p = tweet.text
+			p = tweet.created_at
+		hr
+- else
+  p There are no posts containing the term(s) = params[:search]
+
+- if @users.present?
+	p = @users.username
+- else
+	p ="There are no users containing #{params[:search]}"
