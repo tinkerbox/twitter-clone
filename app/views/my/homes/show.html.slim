@@ -1,0 +1,22 @@
+.page-header
+	//= image_tag @user.avatar.url
+
+.col-md-3	
+	= render 'shared/user_info'
+.col-md-6
+	.panel.panel-default
+		.panel-body
+			h2 Tweets from those you follow
+			hr
+			.media
+				- @tweets.each do |tweet|
+					.media-left
+						= image_tag @followees.find(tweet.user_id).avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+					.media-body
+						p = @followees.find(tweet.user_id).username
+						p = tweet.text
+						p = tweet.created_at
+					hr
+			= will_paginate @tweets
+.col-md-3
+	h1 FOOTER PLACEHOLDER

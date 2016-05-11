@@ -1,4 +1,4 @@
-class My::TweetsController < ApplicationController
+class My::TweetsController < My::BaseController
   def new
     
   end

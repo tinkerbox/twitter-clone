@@ -5,10 +5,11 @@
 			h4 = @user.username
 			p = @user.name
 			p = @user.email
-			- if @me.followees.include?(@user)
-				= button_to "Unfollow", my_follow_path(@user.id), class: "btn btn-danger"
-			- elsif @me != @user
-				= button_to "Follow", my_follows_path(@user.id), class: "btn btn-default"
+			- if @me
+				- if @me.followees.include?(@user)
+					= button_to "Unfollow", my_follow_path(@user.id), class: "btn btn-danger"
+				- elsif @me != @user
+					= button_to "Follow", my_follows_path(@user.id), class: "btn btn-default"
 			br
 			.row
 				.col-md-3
