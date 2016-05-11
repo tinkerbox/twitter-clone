@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resource :account, only: [:new, :create]
+  resource :home, only: [:show]
 
   namespace :my do
     resource :account, only: [:edit, :update, :destroy]
