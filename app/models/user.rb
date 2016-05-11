@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :tweets, dependent: :destroy
+  has_many :follower
+  has_many :followee
 
   authenticates_with_sorcery!
 
