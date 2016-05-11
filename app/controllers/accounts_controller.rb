@@ -8,7 +8,7 @@ class AccountsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = 'Welcome!'
-      redirect_to new_account_path
+      redirect_to log_in_path
     else
       flash[:error] = 'Your registration was unsuccessful!'
       render 'new'
