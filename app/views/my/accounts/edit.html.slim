@@ -8,3 +8,5 @@ h1 Edit Your Profile
 	= f.input :password
 	= f.input :password_confirmation
 	= f.button :submit, class: 'btn btn-primary'
+
+= link_to 'Delete account', my_account_path, method: :delete, data: { confirm: 'Are you sure?' }
