@@ -5,3 +5,19 @@
 			h4 = @user.username
 			p = @user.name
 			p = @user.email
+			= button_to "Follow", my_follows_path(@user.id), class: "btn btn-default"
+			br
+			.row
+				.col-md-4
+					p = @user.tweets.count
+				.col-md-4
+					p = @user.followees.count
+				.col-md-4
+					p = @user.followers.count
+			.row
+				.col-md-4
+					p tweets
+				.col-md-4
+					p following
+				.col-md-4
+					p followers
