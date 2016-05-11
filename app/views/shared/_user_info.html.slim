@@ -1,7 +1,7 @@
 .panel.panel-default
 	.panel-body
-		.row
+		.text-center
+			= image_tag @user.avatar.thumb.url, class: "img-rounded"
 			h4 = @user.username
-			= image_tag @user.avatar.thumb.url
-		p = @user.name
-		p = @user.email
+			p = @user.name
+			p = @user.email
