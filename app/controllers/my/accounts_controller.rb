@@ -15,6 +15,9 @@ class My::AccountsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :name, :username, :birthdate, :description, :location, :avatar)
