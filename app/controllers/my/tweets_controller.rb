@@ -10,6 +10,10 @@ class My::TweetsController < ApplicationController
   end
 
   def destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
+
+    redirect_to new_my_tweet_path
   end
 
   private
