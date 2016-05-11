@@ -4,6 +4,18 @@
 .col-md-3	
 	= render 'shared/user_info'
 .col-md-6
-	h1 TWEETS PLACEHOLDER
+	.panel.panel-default
+		.panel-body
+			h2 Recent Tweets
+			hr
+			.media
+				- @user.tweets.last(20).each do |tweet|
+					.media-left
+						= image_tag @user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+					.media-body
+						p = @user.username
+						p = tweet.text
+						p = tweet.created_at
+					hr
 .col-md-3
 	h1 FOOTER PLACEHOLDER
