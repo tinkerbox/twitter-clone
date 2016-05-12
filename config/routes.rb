@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resource :account, only: [:new, :create]
-  resources :searches, only: [:create, :index]
+  resource :search, only: [:show]
 
   namespace :my do
     get '/', to: redirect('/my/home')
