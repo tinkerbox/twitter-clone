@@ -17,3 +17,7 @@
 @import "bootstrap";
 @import "./application/**/*";
 @import "./shared/**/*";
+
+body {
+  padding-top: 70px;
+}

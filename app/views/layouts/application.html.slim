@@ -6,8 +6,10 @@ head
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 body class="#{controller.controller_path.parameterize.gsub('-', '_')} #{controller.action_name}"
-	.container-fluid
-		= render 'shared/navbar'
-	.container
-		= flash_messages
-		= yield
+  - if current_user.present?
+    = render 'shared/navbar'
+  - else
+    = render 'shared/public_navbar'
+  .container
+    = flash_messages
+    = yield
