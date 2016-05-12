@@ -1,31 +1,35 @@
-.panel.panel-default
-	.panel-body
-		.text-center
-			= image_tag @user.avatar.thumb.url, class: "img-rounded"
-			h4 = @user.username
-			p = @user.name
-			p = @user.email
-			- if @me
-				- if @me.followees.include?(@user)
-					= button_to "Unfollow", my_follow_path(@user.id), class: "btn btn-danger"
-				- elsif @me != @user
-					= button_to "Follow", my_follows_path(@user.id), class: "btn btn-default"
-			br
-			.row
-				.col-md-3
-					p = @user.tweets.count
-				.col-md-3
-					p = @user.followees.count
-				.col-md-3
-					p = @user.followers.count
-				.col-md-3
-					p = @user.likes.count
-			.row
-				.col-md-3
-					p tweets
-				.col-md-3
-					p following
-				.col-md-3
-					p followers
-				.col-md-3
-					p likes
+.user-info
+	.panel.panel-default
+		.panel-body
+			.text-center
+				= image_tag @user.avatar.thumb.url, class: "img-rounded"
+				h4 = link_to @user.username, user_path(@user.id), class: "username"
+				p = @user.name
+				p = @user.email
+				- if @me
+					- if @me.followees.include?(@user)
+						= button_to "Unfollow", my_follow_path(@user.id), class: "btn btn-danger"
+					- elsif @me != @user
+						= button_to "Follow", my_follows_path(@user.id), class: "btn btn-default"
+				br
+				.row
+					= link_to user_path(@user.id) do
+						.col-md-3
+							.text-center
+								p = @user.tweets.count
+								p tweets
+					= link_to user_follows_path(@user.id) do
+						.col-md-3
+							.text-center
+								p = @user.followees.count
+								p following
+					= link_to user_followers_path(@user.id) do
+						.col-md-3
+							.text-center
+								p = @user.followers.count
+								p followers
+					= link_to user_likes_path(@user.id) do
+						.col-md-3
+							.text-center
+								p = @user.likes.count
+								p likes
