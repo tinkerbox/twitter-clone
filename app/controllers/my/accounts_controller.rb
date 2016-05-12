@@ -1,4 +1,4 @@
-class My::AccountsController < ApplicationController
+class My::AccountsController < My::BaseController
 
   def edit
     @user = current_user
@@ -15,6 +15,10 @@ class My::AccountsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    logout
+    @user.destroy
+    redirect_to log_in_path
   end
 
   private

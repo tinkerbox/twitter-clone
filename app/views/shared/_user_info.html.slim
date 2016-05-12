@@ -12,16 +12,20 @@
 					= button_to "Follow", my_follows_path(@user.id), class: "btn btn-default"
 			br
 			.row
-				.col-md-4
+				.col-md-3
 					p = @user.tweets.count
-				.col-md-4
+				.col-md-3
 					p = @user.followees.count
-				.col-md-4
+				.col-md-3
 					p = @user.followers.count
+				.col-md-3
+					p = @user.likes.count
 			.row
-				.col-md-4
+				.col-md-3
 					p tweets
-				.col-md-4
+				.col-md-3
 					p following
-				.col-md-4
+				.col-md-3
 					p followers
+				.col-md-3
+					p likes
