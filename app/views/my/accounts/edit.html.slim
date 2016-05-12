@@ -7,14 +7,14 @@
 	h1 Edit Your Profile
 
 	= simple_form_for @user, url: {action: 'update', controller: 'my/accounts', method: 'POST'} do |f|
-		= f.label "Personal info", label_html: { class: 'form-divider' }
+		= f.label "Personal info", class: 'form-divider'
 		= f.input :avatar, type: :file
 		= f.input :name
 		= f.input :username
 		= f.input :email
 		= f.input :birthdate
 		= f.input :description
-		= f.label "Security", label_html: { class: 'form-divider' }
+		= f.label "Security", class: 'form-divider'
 		= f.input :password
 		= f.input :password_confirmation
 		= f.button :submit, class: 'btn btn-primary'
