@@ -1,0 +1,25 @@
+.my_homes.show {
+	a {
+		color: #333;
+		text-decoration: none;
+	}
+	.username a {
+		color: #333;
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	.username a:hover {
+		color: #337ab7;
+		text-decoration: underline;
+	}
+
+	.avatar-thumb {
+		width: 64px;
+		height: 64px;
+	}
+
+	.timestamp {
+		font-size: 0.8em;
+	}
+}
