@@ -1,16 +1,17 @@
-.col-md-4
-  = render 'shared/user_info'
-.col-md-8
-  .panel.panel-default
-    .panel-body
-      h2 Tweets You Liked
-      hr
-      .media
-        - @users_of_tweets_liked.zip(@tweets_liked).each do |user, tweet|
-          .media-left
-            = image_tag user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
-          .media-body
-            p = user.username
-            p = tweet.text
-            p = tweet.created_at
-          hr
+.row
+  .col-md-4
+    = render 'shared/user_info'
+  .col-md-8
+    .panel.panel-default
+      .panel-body
+        h2 Tweets You Liked
+        hr
+        .media
+          - @users_of_tweets_liked.zip(@tweets_liked).each do |user, tweet|
+            .media-left
+              = image_tag user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+            .media-body
+              p = user.username
+              p = tweet.text
+              p = tweet.created_at
+            hr

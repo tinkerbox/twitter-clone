@@ -1,16 +1,17 @@
-.col-md-4	
-	= render 'shared/user_info'
-.col-md-8
-	.panel.panel-default
-		.panel-body
-			h2 ="People #{@user.username} is following"
-			hr
-			.media
-				- @followees.each do |user|
-					.media-left
-						= image_tag user.avatar.thumb.url, class: 'avatar-thumb'
-					.media-body
-						.username
-							= link_to user.username, user_path(user.id)
-						p = user.name
-					hr
+.row
+	.col-md-4	
+		= render 'shared/user_info'
+	.col-md-8
+		.panel.panel-default
+			.panel-body
+				h2 ="People #{@user.username} is following"
+				hr
+				.media
+					- @followees.each do |user|
+						.media-left
+							= image_tag user.avatar.thumb.url, class: 'avatar-thumb'
+						.media-body
+							.username
+								= link_to user.username, user_path(user.id)
+							p = user.name
+						hr
