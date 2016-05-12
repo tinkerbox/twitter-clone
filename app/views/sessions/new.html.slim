@@ -1,10 +1,18 @@
-h1 Log In
+.row
+	.col-md-5
+		h2 Welcome to i-Twitter.
+		p Connect with your friends - and other fascinating people. Get in-the-moment updates of the things that interests you. And watch the events unfold, in real-time, from every angle.
 
-= form_tag session_path, method: :post do
-	.form-group
-		= label_tag :email
-		= email_field_tag :email, nil, class: 'form-control', required: true
-	.form-group
-		= label_tag :password
-		= password_field_tag :password, nil, class: 'form-control', required: true
-	= submit_tag 'Log in', class: 'btn btn-primary'
+	.col-md-5.col-md-offset-2
+		.row
+			= form_tag session_path, method: :post do
+				.form-group
+					= label_tag :email
+					= email_field_tag :email, nil, class: 'form-control', required: true
+				.form-group
+					= label_tag :password
+					= password_field_tag :password, nil, class: 'form-control', required: true
+				= submit_tag 'Log in', class: 'btn btn-primary'
+		.row
+			p Don't have an account yet? #{link_to 'Sign Up', new_account_path} now.
+			
