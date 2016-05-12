@@ -6,7 +6,13 @@ class My::TweetsController < My::BaseController
   def create
     @tweet = current_user.tweets.create(tweet_params)
 
-    redirect_to @tweet
+    if @tweet.persisted?
+      flash[:success] = 'Your Tweet was posted!'
+      redirect_to current_user
+    else
+      flash[:warning] = 'Please type a message to tweet!'
+      render 'new'
+    end
   end
 
   def destroy
