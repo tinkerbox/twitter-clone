@@ -1,0 +1,17 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    = link_to "Twitter Clone", root_path, class: "navbar-brand"
+    ul.nav.navbar-nav
+      li
+        = link_to "#"
+          span.glyphicon.glyphicon-search
+          | Search
+    ul.nav.navbar-nav.navbar-right
+      li
+        = link_to new_account_path
+          span.glyphicon.glyphicon-user
+          | Create Account
+      li
+        = link_to log_in_path
+          span.glyphicon.glyphicon-log-in
+          | Log In
