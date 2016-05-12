@@ -1,8 +1,12 @@
-h1 New Tweet
+.page-header
 
-= form_for :tweet, url: my_tweets_path do |f|
-  p
-    = f.label :text
-    = f.text_area :text
-  p
-    = f.submit
+.col-xs-offset-3.col-xs-6
+  .panel.panel-info
+    .panel-heading
+      h3 Compose new Tweet
+    .panel-body
+      = form_for :tweet, url: my_tweets_path do |f|
+        p
+          = f.text_area :text, class: 'textarea', placeholder: 'What\'s happening?'
+        p
+          = f.submit "Tweet", class: 'btn btn-primary'
