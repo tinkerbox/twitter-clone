@@ -1,0 +1,19 @@
+.page-header
+
+.col-md-3	
+	= render 'shared/user_info'
+.col-md-6
+	.panel.panel-default
+		.panel-body
+			h2 ="People following #{@user.username}"
+			hr
+			.media
+				- @followers.each do |user|
+					.media-left
+						= image_tag user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+					.media-body
+						p = user.username
+						p = user.name
+					hr
+.col-md-3
+	h1 FOOTER PLACEHOLDER
