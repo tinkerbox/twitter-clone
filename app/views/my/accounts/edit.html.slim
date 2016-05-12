@@ -1,13 +1,26 @@
-h1 Edit Your Profile
+.page-header
 
-= simple_form_for @user, url: {action: 'update', controller: 'my/accounts', method: 'POST'} do |f|
-	= f.input :avatar, type: :file
-	= f.input :name
-	= f.input :username
-	= f.input :email
-	= f.input :password
-	= f.input :password_confirmation
-	= f.button :submit, class: 'btn btn-primary'
+.col-md-4
+	= render 'shared/user_info'
 
-= button_to 'Log out', log_out_path, method: :delete, class: "btn btn-default"
-= button_to 'Delete account', my_account_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+.col-md-8
+	h1 Edit Your Profile
+
+	= simple_form_for @user, url: {action: 'update', controller: 'my/accounts', method: 'POST'} do |f|
+		= f.label "Personal info", label_html: { class: 'form-divider' }
+		= f.input :avatar, type: :file
+		= f.input :name
+		= f.input :username
+		= f.input :email
+		= f.input :birthdate
+		= f.input :description
+		= f.label "Security", label_html: { class: 'form-divider' }
+		= f.input :password
+		= f.input :password_confirmation
+		= f.button :submit, class: 'btn btn-primary'
+
+	h3 Danger zone
+	.row
+		.col-md-12.text-ceter
+			= button_to 'Delete account', my_account_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+	br
