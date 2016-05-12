@@ -1,9 +1,9 @@
 .page-header
 	//= image_tag @user.avatar.url
 
-.col-md-3	
+.col-md-4
 	= render 'shared/user_info'
-.col-md-6
+.col-md-8
 	.panel.panel-default
 		.panel-body
 			h2 Recent Tweets
@@ -18,5 +18,3 @@
 						p = tweet.created_at
 					hr
 			= will_paginate @tweets
-.col-md-3
-	h1 FOOTER PLACEHOLDER
