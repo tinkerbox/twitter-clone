@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
 
-	def index
+	def show
 		if params[:search]
 			@tweets = Tweet.search(params[:search].downcase).order("created_at DESC")
 			@users = User.search(params[:search].downcase).order("created_at DESC")
@@ -9,4 +9,5 @@ class SearchesController < ApplicationController
 			@users = nil
 		end
 	end
+
 end
