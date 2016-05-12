@@ -1,23 +1,32 @@
 .page-header
-- if @tweets
-	- @tweets.each do |tweet|
-		.media-left
-			= image_tag tweet.user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
-		.media-body
-			p = tweet.user.username
-			p = tweet.text
-			p = tweet.created_at
-		hr
-- else
-  p ="There are no tweet containing the term(s) #{params[:search]}"
+	h1 Search Results
 
-- if @users.present?
-	- @users.each do |user|
-		.media-left
-			= image_tag user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
-		.media-body
-			p = user.username
-			p = user.name
-		hr
-- else
-	p ="There are no users containing #{params[:search]}"
+.col-md-6
+	h2 Tweets
+	- if @tweets
+		- @tweets.each do |tweet|
+			.media-left
+				= link_to user_path(tweet.user_id)
+					= image_tag tweet.user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+			.media-body
+				.username
+					= link_to tweet.user.username, user_path(tweet.user_id)
+				= link_to tweet.text, user_tweet_path(tweet.user_id, tweet.id)
+				p = tweet.created_at
+			hr
+	- else
+	  p ="There are no tweet containing the term(s) #{params[:search]}"
+
+.col-md-6
+	h2 Users
+	- if @users.present?
+		- @users.each do |user|
+			.media-left
+				= image_tag user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+			.media-body
+				.username
+					= link_to user.username, user_path(user.id)
+				p = user.name
+			hr
+	- else
+		p ="There are no users containing #{params[:search]}"
