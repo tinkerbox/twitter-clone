@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
-
+    @user = User.find(params[:user_id])
     @people_liked_id = Like.where(tweet_id: params[:id]).order('created_at DESC').collect { |like| like.user_id }
     @people_liked = User.all.where(id: @people_liked_id)
   end
