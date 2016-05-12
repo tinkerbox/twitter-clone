@@ -1,7 +1,20 @@
 h1 Your Tweet
 
+hr
+
 = @tweet.text
 
 = button_to "Like!", {controller: 'my/likes', action: 'create', tweet_id: params[:id]}, method: :post
 
 = button_to "Unlike..", {controller: 'my/likes', action: 'destroy', tweet_id: params[:id]}, method: :delete
+
+h3 People who like this tweet
+
+hr
+
+- @people_liked.each do |people|
+  .media-left
+      = image_tag people.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+  .media-body
+    p = people.username
+  hr
