@@ -1,0 +1,4 @@
+.navbar.navbar-default.navbar-fixed-top.navbar-inverse
+	= form_tag searches_path, method: :get, id: 'search-form' do
+		= text_field_tag :search, params[:search], placeholder: 'Search anything'
+		= submit_tag

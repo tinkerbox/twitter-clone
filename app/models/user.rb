@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   mount_uploader :avatar, AvatarUploader
+
+  def self.search(search)
+  	where("username LIKE ?", "%#{search}%")
+  end
 end
