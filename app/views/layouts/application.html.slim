@@ -6,6 +6,8 @@ head
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 body
+	.container-fluid
+		= render 'shared/navbar'
 	.container
 		= flash_messages
 		= yield

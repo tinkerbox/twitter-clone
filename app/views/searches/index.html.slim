@@ -1,0 +1,23 @@
+.page-header
+- if @tweets
+	- @tweets.each do |tweet|
+		.media-left
+			= image_tag tweet.user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+		.media-body
+			p = tweet.user.username
+			p = tweet.text
+			p = tweet.created_at
+		hr
+- else
+  p ="There are no tweet containing the term(s) #{params[:search]}"
+
+- if @users.present?
+	- @users.each do |user|
+		.media-left
+			= image_tag user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+		.media-body
+			p = user.username
+			p = user.name
+		hr
+- else
+	p ="There are no users containing #{params[:search]}"
