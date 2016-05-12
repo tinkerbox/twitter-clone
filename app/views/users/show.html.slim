@@ -11,10 +11,13 @@
 			.media
 				- @tweets.each do |tweet|
 					.media-left
-						= image_tag @user.avatar.thumb.url, class: 'img-rounded', height: '64', width: '64'
+						= link_to user_path(tweet.user_id)
+							= image_tag @user.avatar.thumb.url, class: 'img-rounded avatar-thumb'
 					.media-body
-						p = @user.username
-						p = tweet.text
-						p = tweet.created_at
+						.username
+							= link_to @user.username, user_path(@user.id)
+						= link_to tweet.text, user_tweet_path(@user.id, tweet.id)
+						.timestamp
+							p = tweet.created_at
 					hr
 			= will_paginate @tweets
