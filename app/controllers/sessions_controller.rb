@@ -1,11 +1,14 @@
 class SessionsController < ApplicationController
 	def new
+    if current_user.present?
+      redirect_to my_home_path
+    end
 	end
 
 	def create
 		if login(params[:email], params[:password])
       flash[:success] = 'Welcome back!'
-      redirect_to current_user
+      redirect_to my_home_path
     else
       flash.now[:warning] = 'E-mail and/or password is incorrect.'
       render 'new'
