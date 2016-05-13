@@ -56,7 +56,14 @@ describe SessionsController do
   end
 
   describe "DELETE #destroy" do
-    it "logs out the user"
-    it "redirects to the log in page"
+    before { delete :destroy }
+    
+    it "logs out the user" do
+      expect(logged_in?).to eq false
+    end
+
+    it "redirects to the log in page" do
+      expect(response).to redirect_to log_in_path
+    end
   end
 end
