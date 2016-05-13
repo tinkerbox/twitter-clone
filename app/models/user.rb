@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   validates :password, length: { minimum: 3}, confirmation: true
   EMAIL_REGEX = /@/
-  validates :email, uniqueness: true, presence: true, format: { with: EMAIL_REGEX , multiline: true }
+  validates :email, uniqueness: true, presence: true, format: { with: EMAIL_REGEX , multiline: true }, case_sensitive: false
   validates :username, uniqueness: true, presence: true
   validates :name, presence: true
 
