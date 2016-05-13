@@ -13,10 +13,11 @@
           = link_to @tweet.text, user_tweet_path(@user.id, @tweet.id)
           .timestamp
             p = @tweet.created_at
-          - if @tweet.likes.find_by(user_id: current_user.id)
-            = button_to "Unlike!", {controller: 'my/likes', action: 'destroy', tweet_id: params[:id]}, method: :delete, class: "btn btn-danger btn-xs"
-          - else
-            = button_to "Like!", {controller: 'my/likes', action: 'create', tweet_id: params[:id]}, method: :post, class: "btn btn-primary btn-xs"
+          - if current_user.present?
+            - if @tweet.likes.find_by(user_id: current_user.id)
+              = button_to "Unlike!", {controller: 'my/likes', action: 'destroy', tweet_id: params[:id]}, method: :delete, class: "btn btn-danger btn-xs"
+            - else
+              = button_to "Like!", {controller: 'my/likes', action: 'create', tweet_id: params[:id]}, method: :post, class: "btn btn-primary btn-xs"
       hr
       h3 People who like this tweet
       hr
