@@ -1,6 +1,7 @@
 require "rails_helper"
 
 describe FollowsController, type: :controller do
+  
   let(:user) { FactoryGirl.create(:user) }
 
   describe "GET #index" do
