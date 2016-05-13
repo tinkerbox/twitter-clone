@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe User, :type => :model do
-  subject { FactoryGirl.build(:user_with_tweet) }
-  let(:user) { FactoryGirl.create(:user_with_tweet) }
+  subject { FactoryGirl.build(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
 	it { is_expected.to validate_presence_of :email }
   it { is_expected.to validate_uniqueness_of :email }
@@ -13,7 +13,7 @@ describe User, :type => :model do
 
   it { is_expected.to have_many :tweets }
   it { is_expected.to have_many :likes }
-  it { expect{ user.destroy }.to change { Tweet.count } }
+  pending "check if tweets are dependent on users"
   it { is_expected.to have_many(:followers).through(:followee_follows).source(:follower) }
   it { is_expected.to have_many(:followees).through(:follower_follows).source(:followee) }
   it { is_expected.to have_many(:follower_follows) }

@@ -1,6 +1,7 @@
 require 'capybara/rspec'
 require 'factory_girl_rails'
 require "codeclimate-test-reporter"
+require File.expand_path("../../config/environment", __FILE__)
 
 CodeClimate::TestReporter.start
 
