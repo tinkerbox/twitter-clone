@@ -17,9 +17,9 @@
 							= link_to tweet.text, user_tweet_path(@user.id, tweet.id)
 							.timestamp
 								p = tweet.created_at
-							- if tweet.likes.find_by(user_id: current_user.id)
-								= button_to "Unlike!", {controller: 'my/likes', action: 'destroy', tweet_id: tweet.id}, method: :delete, class: "btn btn-danger btn-xs"
+							- if like = tweet.likes.find_by(user_id: current_user.id)
+								= button_to "Unlike!", my_tweet_like_path(tweet, like), method: :delete, class: "btn btn-danger btn-xs"
 							- else
-								= button_to "Like!", {controller: 'my/likes', action: 'create', tweet_id: tweet.id}, method: :post, class: "btn btn-primary btn-xs"
+								= button_to "Like!", my_tweet_likes_path(tweet), method: :post, class: "btn btn-primary btn-xs"
 						hr
 				= will_paginate @tweets
