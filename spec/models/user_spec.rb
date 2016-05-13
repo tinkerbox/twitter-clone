@@ -16,9 +16,16 @@ describe User, :type => :model do
     user = FactoryGirl.build(:user)
     it { is_expected.to have_many :tweets }
     it { is_expected.to have_many :likes }
+    it { expect{ user.destroy }.to change { Tweet.count } }
     it { is_expected.to have_many(:followers).through(:followee_follows).source(:follower) }
     it { is_expected.to have_many(:followees).through(:follower_follows).source(:followee) }
-    it { expect{ user.destroy }.to change { Tweet.count } }
+    it { is_expected.to have_many(:follower_follows) }
+    it { is_expected.to have_many(:followee_follows) }
+  end
+
+  context '.search' do
+    user = FactoryGirl.build(:user)
+    it {}
   end
 
 end

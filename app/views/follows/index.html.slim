@@ -9,9 +9,9 @@
 				.media
 					- @followees.each do |user|
 						.media-left
-							= image_tag user.avatar.thumb.url, class: 'avatar-thumb'
+							= link_to user_path(user.id)
+								= image_tag user.avatar.thumb.url, class: 'avatar-thumb'
 						.media-body
 							.username
 								= link_to user.username, user_path(user.id)
-							p = user.name
 						hr

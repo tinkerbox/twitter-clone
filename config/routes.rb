@@ -15,9 +15,10 @@ Rails.application.routes.draw do
     get '/', to: redirect('/my/home')
     resource :home, only: [:show]
     resource :account, only: [:edit, :update, :destroy]
-    resources :tweets, only: [:new, :create, :destroy]
+    resources :tweets, only: [:new, :create, :destroy] do
+      resources :likes, only: [:create, :destroy]
+    end
     resources :follows, only: [:create, :destroy]
-    resources :likes, only: [:create, :destroy]
   end
 
   resource :session, only: [:new, :create, :destroy]
