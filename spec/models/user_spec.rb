@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 describe User, :type => :model do
-  user = FactoryGirl.build(:user)
-  
+  subject { FactoryGirl.build(:user_with_tweet) }
+  let(:user) { FactoryGirl.create(:user_with_tweet) }
+
 	it { is_expected.to validate_presence_of :email }
-  # it { is_expected.to validate_uniqueness_of :email }
+  it { is_expected.to validate_uniqueness_of :email }
 	it { is_expected.to validate_presence_of :username }
 	it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_length_of(:password).is_at_least(3) }
